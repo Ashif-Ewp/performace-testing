@@ -1,0 +1,37 @@
+{
+  "name": "chartraiders-performance-testing",
+  "version": "1.0.0",
+  "description": "k6 performance test suite for ChartRaiders API - load, stress, spike, soak, and WebSocket tests",
+  "private": true,
+  "main": "config.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "seed": "node seed-test-users.js",
+    "seed:prod": "node seed-test-users.js",
+    "k6:smoke": "k6 run --env BASE_URL=${BASE_URL:-https://api.chartraiders.com} smoke-test.js",
+    "k6:load": "k6 run --env BASE_URL=${BASE_URL:-https://api.chartraiders.com} --env WS_URL=${WS_URL:-wss://api.chartraiders.com/realtime} --out json=results/load-test-results.json --summary-export=results/load-test-summary.json load-test.js",
+    "k6:stress": "k6 run --env BASE_URL=${BASE_URL:-https://api.chartraiders.com} --env WS_URL=${WS_URL:-wss://api.chartraiders.com/realtime} --out json=results/stress-test-results.json --summary-export=results/stress-test-summary.json stress-test.js",
+    "k6:spike": "k6 run --env BASE_URL=${BASE_URL:-https://api.chartraiders.com} --env WS_URL=${WS_URL:-wss://api.chartraiders.com/realtime} --out json=results/spike-test-results.json --summary-export=results/spike-test-summary.json spike-test.js",
+    "k6:soak": "k6 run --env BASE_URL=${BASE_URL:-https://api.chartraiders.com} --env WS_URL=${WS_URL:-wss://api.chartraiders.com/realtime} --out json=results/soak-test-results.json --summary-export=results/soak-test-summary.json soak-test.js",
+    "k6:full": "k6 run --env BASE_URL=${BASE_URL:-https://api.chartraiders.com} --env WS_URL=${WS_URL:-wss://api.chartraiders.com/realtime} --out json=results/full-test-results.json full-test.js",
+    "k6:websocket": "k6 run --env BASE_URL=${BASE_URL:-https://api.chartraiders.com} --env WS_URL=${WS_URL:-wss://api.chartraiders.com/realtime} --out json=results/websocket-test-results.json --summary-export=results/websocket-test-summary.json websocket-test.js",
+    "k6:all": "bash run-all-tests.sh all",
+    "report": "node scripts/generate-report.js",
+    "pretest": "mkdir -p results",
+    "test": "npm run k6:smoke"
+  },
+  "devDependencies": {
+    "k6-html-reporter": "^1.0.5"
+  },
+  "keywords": [
+    "performance-testing",
+    "k6",
+    "load-testing",
+    "api-testing",
+    "chartraiders"
+  ],
+  "author": "ChartRaiders Engineering Team",
+  "license": "ISC"
+}

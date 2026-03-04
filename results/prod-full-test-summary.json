@@ -1,0 +1,417 @@
+{
+    "metrics": {
+        "http_reqs": {
+            "rate": 47.917294182828265,
+            "count": 62053
+        },
+        "http_req_receiving": {
+            "avg": 0.6040033261889076,
+            "min": 0,
+            "med": 0,
+            "max": 1278.8595,
+            "p(90)": 0.8769,
+            "p(95)": 1.0002
+        },
+        "data_received": {
+            "count": 192516661,
+            "rate": 148661.26505137255
+        },
+        "dropped_iterations": {
+            "rate": 0.45636989125508043,
+            "count": 591
+        },
+        "vus": {
+            "min": 1,
+            "max": 755,
+            "value": 6
+        },
+        "failed_requests": {
+            "count": 155,
+            "rate": 0.11969091902629013
+        },
+        "vus_max": {
+            "value": 755,
+            "min": 752,
+            "max": 755
+        },
+        "successful_requests": {
+            "count": 59968,
+            "rate": 46.307258272055265
+        },
+        "character_panel_duration": {
+            "min": 304.9077,
+            "med": 9263.3033,
+            "max": 60060.1802,
+            "p(90)": 33499.581060000004,
+            "p(95)": 42739.252719999895,
+            "avg": 14071.681069720264,
+            "thresholds": {
+                "avg<800": true,
+                "p(95)<1500": true
+            }
+        },
+        "ticket_duration": {
+            "avg": 4160.378376672523,
+            "min": 297.7632,
+            "med": 3259.31885,
+            "max": 60000.3575,
+            "p(90)": 8749.79571,
+            "p(95)": 9568.916244999999,
+            "thresholds": {
+                "avg<700": true,
+                "p(95)<1200": true
+            }
+        },
+        "http_req_tls_handshaking": {
+            "avg": 11.890577988171417,
+            "min": 0,
+            "med": 0,
+            "max": 1809.6719,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "custom_error_rate": {
+            "fails": 59968,
+            "passes": 155,
+            "thresholds": {
+                "rate<0.05": false
+            },
+            "value": 0.0025780483342481247
+        },
+        "http_req_failed": {
+            "passes": 155,
+            "fails": 61898,
+            "value": 0.0024978647285385075
+        },
+        "match_history_duration": {
+            "max": 9635.4779,
+            "p(90)": 7248.895160000009,
+            "p(95)": 8463.37712,
+            "avg": 2604.8764989146866,
+            "min": 293.7491,
+            "med": 1110.4463
+        },
+        "profile_duration": {
+            "med": 2040.4199,
+            "max": 60001.1133,
+            "p(90)": 8970.51722,
+            "p(95)": 9701.83714,
+            "avg": 3946.81297412434,
+            "min": 304.1023,
+            "thresholds": {
+                "p(95)<1200": true,
+                "avg<700": true
+            }
+        },
+        "notification_duration": {
+            "avg": 2518.0606498305115,
+            "min": 296.9804,
+            "med": 949.7924,
+            "max": 60000.8164,
+            "p(90)": 7776.079659999999,
+            "p(95)": 8580.402820000001,
+            "thresholds": {
+                "avg<600": true,
+                "p(95)<1200": true
+            }
+        },
+        "http_req_duration": {
+            "p(95)": 23269.214399999997,
+            "avg": 5542.447570702467,
+            "min": 255.4688,
+            "med": 3445.6162,
+            "max": 60060.1802,
+            "p(90)": 10590.835200000003,
+            "thresholds": {
+                "avg<800": true,
+                "p(95)<1500": true,
+                "p(99)<3000": true
+            }
+        },
+        "friend_list_duration": {
+            "p(95)": 8722.087175,
+            "avg": 3054.9770942089026,
+            "min": 298.8347,
+            "med": 1516.5878,
+            "max": 19224.5122,
+            "p(90)": 7986.922570000001,
+            "thresholds": {
+                "avg<700": true,
+                "p(95)<1200": true
+            }
+        },
+        "http_req_blocked": {
+            "min": 0,
+            "med": 0,
+            "max": 3809.9427,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 23.708720598520618
+        },
+        "checks": {
+            "passes": 69738,
+            "fails": 179,
+            "value": 0.9974398215026389
+        },
+        "party_duration": {
+            "med": 3436.7548500000003,
+            "max": 17358.4808,
+            "p(90)": 8352.966480000001,
+            "p(95)": 8834.417985000002,
+            "avg": 3628.5998062548847,
+            "min": 303.2977
+        },
+        "login_duration": {
+            "p(95)": 9439.04421,
+            "avg": 4037.744976475069,
+            "min": 255.4688,
+            "med": 3407.8508,
+            "max": 60001.3948,
+            "p(90)": 8773.23806,
+            "thresholds": {
+                "avg<800": true,
+                "p(95)<1500": true
+            }
+        },
+        "http_req_connecting": {
+            "min": 0,
+            "med": 0,
+            "max": 3413.3303,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 11.789606965013784
+        },
+        "http_req_duration{expected_response:true}": {
+            "min": 293.7491,
+            "med": 3430.0664500000003,
+            "max": 59816.6075,
+            "p(90)": 10363.554320000003,
+            "p(95)": 20703.35185999998,
+            "avg": 5407.25008429028
+        },
+        "shop_duration": {
+            "p(95)": 9029.906855,
+            "avg": 3937.3973797690523,
+            "min": 309.7922,
+            "med": 3905.0193,
+            "max": 10358.7684,
+            "p(90)": 8553.566920000003,
+            "thresholds": {
+                "avg<700": true,
+                "p(95)<1200": true
+            }
+        },
+        "balance_duration": {
+            "avg": 2978.2937288299217,
+            "min": 303.815,
+            "med": 1437.8323500000001,
+            "max": 10386.3782,
+            "p(90)": 8281.9997,
+            "p(95)": 9347.906875
+        },
+        "leaderboard_duration": {
+            "p(90)": 32374.215180000003,
+            "p(95)": 37858.9065,
+            "avg": 13916.742146005132,
+            "min": 413.08,
+            "med": 10537.5498,
+            "max": 60006.8399,
+            "thresholds": {
+                "avg<700": true,
+                "p(95)<1500": true
+            }
+        },
+        "data_sent": {
+            "count": 28576074,
+            "rate": 22066.429414343707
+        },
+        "iterations": {
+            "count": 8202,
+            "rate": 6.33358011518472
+        },
+        "http_req_sending": {
+            "avg": 0.012630325689330087,
+            "min": 0,
+            "med": 0,
+            "max": 32.9919,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "iteration_duration": {
+            "avg": 33936.679883967285,
+            "min": 301.2238,
+            "med": 28162.30625,
+            "max": 208905.6047,
+            "p(90)": 84277.20696000001,
+            "p(95)": 99737.09573500001
+        },
+        "http_req_waiting": {
+            "max": 60060.1802,
+            "p(90)": 10589.852920000001,
+            "p(95)": 23268.61265999999,
+            "avg": 5541.830937050556,
+            "min": 255.3424,
+            "med": 3444.1918
+        },
+        "health_check_duration": {
+            "avg": 1760.4986290155437,
+            "min": 301.2238,
+            "med": 505.2185,
+            "max": 45136.1585,
+            "p(90)": 5066.698260000001,
+            "p(95)": 7355.968344999999,
+            "thresholds": {
+                "avg<600": true,
+                "p(95)<1000": true
+            }
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "health 200": {
+                    "name": "health 200",
+                    "path": "::health 200",
+                    "id": "8e4f90a842a57472549a6b2cf699032d",
+                    "passes": 1930,
+                    "fails": 0
+                },
+                "login 200": {
+                    "id": "48b06dc5cde7f6ebb606ad7da726a2a5",
+                    "passes": 7840,
+                    "fails": 24,
+                    "name": "login 200",
+                    "path": "::login 200"
+                },
+                "login has token": {
+                    "passes": 7840,
+                    "fails": 24,
+                    "name": "login has token",
+                    "path": "::login has token",
+                    "id": "76fad3378234b1d9b3859991679a6c46"
+                },
+                "GET /api/v1/user/profile 2xx": {
+                    "passes": 5438,
+                    "fails": 15,
+                    "name": "GET /api/v1/user/profile 2xx",
+                    "path": "::GET /api/v1/user/profile 2xx",
+                    "id": "722bf5850802c8dd62438e114347b9ad"
+                },
+                "GET /api/v1/charactor-panel 2xx": {
+                    "name": "GET /api/v1/charactor-panel 2xx",
+                    "path": "::GET /api/v1/charactor-panel 2xx",
+                    "id": "6b124127e2568a0240aa6258362e62b4",
+                    "passes": 4656,
+                    "fails": 69
+                },
+                "GET /api/v1/ticket/user 2xx": {
+                    "id": "ab4084f7732e6abd6154d01f20440129",
+                    "passes": 5444,
+                    "fails": 0,
+                    "name": "GET /api/v1/ticket/user 2xx",
+                    "path": "::GET /api/v1/ticket/user 2xx"
+                },
+                "GET /api/v1/leaderboard 2xx": {
+                    "name": "GET /api/v1/leaderboard 2xx",
+                    "path": "::GET /api/v1/leaderboard 2xx",
+                    "id": "88c8c48901baeffbdb8c97c943b41b4c",
+                    "passes": 4248,
+                    "fails": 45
+                },
+                "GET /api/v1/notification 2xx": {
+                    "name": "GET /api/v1/notification 2xx",
+                    "path": "::GET /api/v1/notification 2xx",
+                    "id": "909bd03c8927ff37680adc22a1514838",
+                    "passes": 4424,
+                    "fails": 1
+                },
+                "GET /api/v1/shop/case 2xx": {
+                    "name": "GET /api/v1/shop/case 2xx",
+                    "path": "::GET /api/v1/shop/case 2xx",
+                    "id": "968fff97f88544c60bbbd1c94523528b",
+                    "passes": 3299,
+                    "fails": 0
+                },
+                "GET /api/v1/friend/list 2xx": {
+                    "passes": 4336,
+                    "fails": 0,
+                    "name": "GET /api/v1/friend/list 2xx",
+                    "path": "::GET /api/v1/friend/list 2xx",
+                    "id": "162f7f6abb85d99af3bd1cff86d371e6"
+                },
+                "GET /api/v1/history/match/:id 2xx": {
+                    "path": "::GET /api/v1/history/match/:id 2xx",
+                    "id": "a5e5044538b4d26afb7ce22648872449",
+                    "passes": 1802,
+                    "fails": 0,
+                    "name": "GET /api/v1/history/match/:id 2xx"
+                },
+                "GET /api/v1/website/account-balance 2xx": {
+                    "path": "::GET /api/v1/website/account-balance 2xx",
+                    "id": "9aa204cadf4cb4a96e747a44ef546e8a",
+                    "passes": 3316,
+                    "fails": 0,
+                    "name": "GET /api/v1/website/account-balance 2xx"
+                },
+                "GET /api/v1/charactor-panel/match-history 2xx": {
+                    "path": "::GET /api/v1/charactor-panel/match-history 2xx",
+                    "id": "841d95c2044e0e1c75d348f614ef8b1d",
+                    "passes": 1515,
+                    "fails": 0,
+                    "name": "GET /api/v1/charactor-panel/match-history 2xx"
+                },
+                "GET /api/v1/charactor-panel/match-statistic 2xx": {
+                    "passes": 1584,
+                    "fails": 0,
+                    "name": "GET /api/v1/charactor-panel/match-statistic 2xx",
+                    "path": "::GET /api/v1/charactor-panel/match-statistic 2xx",
+                    "id": "24e3f33ddb9fd814726f45ad4da05c1a"
+                },
+                "GET /api/v1/charactor-panel/top-trader 2xx": {
+                    "name": "GET /api/v1/charactor-panel/top-trader 2xx",
+                    "path": "::GET /api/v1/charactor-panel/top-trader 2xx",
+                    "id": "df5b377ceb19abea23384680b22c16b2",
+                    "passes": 1376,
+                    "fails": 0
+                },
+                "GET /api/v1/party/my 2xx": {
+                    "id": "02adb7ba4713f178efb2b23caf4ad75e",
+                    "passes": 2558,
+                    "fails": 0,
+                    "name": "GET /api/v1/party/my 2xx",
+                    "path": "::GET /api/v1/party/my 2xx"
+                },
+                "GET /api/v1/shop/item/featured 2xx": {
+                    "name": "GET /api/v1/shop/item/featured 2xx",
+                    "path": "::GET /api/v1/shop/item/featured 2xx",
+                    "id": "ce17dbdbfd164cad8901b69f7374030c",
+                    "passes": 1521,
+                    "fails": 0
+                },
+                "GET /api/v1/friend/request 2xx": {
+                    "name": "GET /api/v1/friend/request 2xx",
+                    "path": "::GET /api/v1/friend/request 2xx",
+                    "id": "bda2f2c4e0c5035d804f702a92b7b5ed",
+                    "passes": 1466,
+                    "fails": 0
+                },
+                "GET /api/v1/ticket/queue 2xx": {
+                    "id": "c86578d203bc3157655b7c61bcac6cdd",
+                    "passes": 3643,
+                    "fails": 1,
+                    "name": "GET /api/v1/ticket/queue 2xx",
+                    "path": "::GET /api/v1/ticket/queue 2xx"
+                },
+                "GET /api/v1/shop/item 2xx": {
+                    "fails": 0,
+                    "name": "GET /api/v1/shop/item 2xx",
+                    "path": "::GET /api/v1/shop/item 2xx",
+                    "id": "658c685b981124c23598911b9eeed7ee",
+                    "passes": 1502
+                }
+            }
+    }
+}

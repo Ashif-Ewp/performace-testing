@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /home/ashif/chart_raiders/performace_testing/*.js)"
+    ]
+  }
+}

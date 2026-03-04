@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-02-19T06:32:06.493Z",
+  "target": "https://api.chartraiders.com/api/v1",
+  "environment": "EC2 t2.medium (4 vCPU, 8GB) + Nginx",
+  "overall": {
+    "total_requests": 62053,
+    "total_duration_s": 1295.0021711,
+    "rps": 47.917294182828265
+  },
+  "response_times": {
+    "avg_ms": 5542.447570702467,
+    "min_ms": 255.4688,
+    "med_ms": 3445.6162,
+    "max_ms": 60060.1802,
+    "p90_ms": 10590.835200000003,
+    "p95_ms": 23269.214399999997
+  },
+  "error_rate": 0.0025780483342481247,
+  "checks_passed": 69738,
+  "checks_failed": 179,
+  "endpoint_metrics": {
+    "login": {
+      "avg_ms": 4037.74,
+      "min_ms": 255.47,
+      "med_ms": 3407.85,
+      "max_ms": 60001.39,
+      "p90_ms": 8773.24,
+      "p95_ms": 9439.04,
+      "p99_ms": null,
+      "count": 0
+    },
+    "profile": {
+      "avg_ms": 3946.81,
+      "min_ms": 304.1,
+      "med_ms": 2040.42,
+      "max_ms": 60001.11,
+      "p90_ms": 8970.52,
+      "p95_ms": 9701.84,
+      "p99_ms": null,
+      "count": 0
+    },
+    "leaderboard": {
+      "avg_ms": 13916.74,
+      "min_ms": 413.08,
+      "med_ms": 10537.55,
+      "max_ms": 60006.84,
+      "p90_ms": 32374.22,
+      "p95_ms": 37858.91,
+      "p99_ms": null,
+      "count": 0
+    },
+    "match_history": {
+      "avg_ms": 2604.88,
+      "min_ms": 293.75,
+      "med_ms": 1110.45,
+      "max_ms": 9635.48,
+      "p90_ms": 7248.9,
+      "p95_ms": 8463.38,
+      "p99_ms": null,
+      "count": 0
+    },
+    "shop": {
+      "avg_ms": 3937.4,
+      "min_ms": 309.79,
+      "med_ms": 3905.02,
+      "max_ms": 10358.77,
+      "p90_ms": 8553.57,
+      "p95_ms": 9029.91,
+      "p99_ms": null,
+      "count": 0
+    },
+    "ticket": {
+      "avg_ms": 4160.38,
+      "min_ms": 297.76,
+      "med_ms": 3259.32,
+      "max_ms": 60000.36,
+      "p90_ms": 8749.8,
+      "p95_ms": 9568.92,
+      "p99_ms": null,
+      "count": 0
+    },
+    "notification": {
+      "avg_ms": 2518.06,
+      "min_ms": 296.98,
+      "med_ms": 949.79,
+      "max_ms": 60000.82,
+      "p90_ms": 7776.08,
+      "p95_ms": 8580.4,
+      "p99_ms": null,
+      "count": 0
+    },
+    "character_panel": {
+      "avg_ms": 14071.68,
+      "min_ms": 304.91,
+      "med_ms": 9263.3,
+      "max_ms": 60060.18,
+      "p90_ms": 33499.58,
+      "p95_ms": 42739.25,
+      "p99_ms": null,
+      "count": 0
+    },
+    "friend_list": {
+      "avg_ms": 3054.98,
+      "min_ms": 298.83,
+      "med_ms": 1516.59,
+      "max_ms": 19224.51,
+      "p90_ms": 7986.92,
+      "p95_ms": 8722.09,
+      "p99_ms": null,
+      "count": 0
+    },
+    "health_check": {
+      "avg_ms": 1760.5,
+      "min_ms": 301.22,
+      "med_ms": 505.22,
+      "max_ms": 45136.16,
+      "p90_ms": 5066.7,
+      "p95_ms": 7355.97,
+      "p99_ms": null,
+      "count": 0
+    },
+    "party": {
+      "avg_ms": 3628.6,
+      "min_ms": 303.3,
+      "med_ms": 3436.75,
+      "max_ms": 17358.48,
+      "p90_ms": 8352.97,
+      "p95_ms": 8834.42,
+      "p99_ms": null,
+      "count": 0
+    },
+    "balance": {
+      "avg_ms": 2978.29,
+      "min_ms": 303.82,
+      "med_ms": 1437.83,
+      "max_ms": 10386.38,
+      "p90_ms": 8282,
+      "p95_ms": 9347.91,
+      "p99_ms": null,
+      "count": 0
+    }
+  },
+  "thresholds_results": {}
+}
