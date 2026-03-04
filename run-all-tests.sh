@@ -90,6 +90,25 @@ if ! command -v k6 &> /dev/null; then
                 exit 1
             fi
             ;;
+        MINGW*|MSYS*|CYGWIN*)
+            if command -v choco &> /dev/null; then
+                echo -e "${BLUE}Detected Windows (Git Bash) — installing via Chocolatey...${NC}" 
+                choco install k6 -y
+            elif command -v winget &> /dev/null; then
+                echo -e "${BLUE}Detected Windows (Git Bash) — installing via winget...${NC}"
+                winget install k6 --accept-package-agreements --accept-source-agreements
+            elif command -v scoop &> /dev/null; then
+                echo -e "${BLUE}Detected Windows (Git Bash) — installing via Scoop...${NC}"
+                scoop install k6
+            else
+                echo -e "${RED}ERROR: No package manager found. Install one of these first:${NC}"
+                echo "  Chocolatey: https://chocolatey.org/install"
+                echo "  winget:     comes with Windows 10/11"
+                echo "  Scoop:      https://scoop.sh"
+                echo "  Or install k6 manually: https://k6.io/docs/getting-started/installation/"
+                exit 1
+            fi
+            ;;
         *)
             echo -e "${RED}ERROR: Unsupported OS ($OS). Install k6 manually:${NC}"
             echo "  https://k6.io/docs/getting-started/installation/"
