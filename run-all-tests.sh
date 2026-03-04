@@ -49,14 +49,60 @@ echo ""
 # Create results directory
 mkdir -p "$RESULTS_DIR"
 
-# Check if k6 is installed
+# Check if k6 is installed, auto-install if not
 if ! command -v k6 &> /dev/null; then
-    echo -e "${RED}ERROR: k6 is not installed.${NC}"
-    echo "Install k6: https://k6.io/docs/getting-started/installation/"
-    echo "  Windows: choco install k6"
-    echo "  Linux:   sudo apt install k6"
-    echo "  macOS:   brew install k6"
-    exit 1
+    echo -e "${YELLOW}k6 is not installed. Attempting auto-install...${NC}"
+
+    OS="$(uname -s)"
+    case "$OS" in
+        Linux)
+            if command -v apt-get &> /dev/null; then
+                echo -e "${BLUE}Detected Debian/Ubuntu — installing via apt...${NC}"
+                sudo gpg -k
+                sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+                echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+                sudo apt-get update
+                sudo apt-get install -y k6
+            elif command -v yum &> /dev/null; then
+                echo -e "${BLUE}Detected RHEL/CentOS — installing via yum...${NC}"
+                sudo yum install -y https://dl.k6.io/rpm/repo.rpm
+                sudo yum install -y k6
+            elif command -v dnf &> /dev/null; then
+                echo -e "${BLUE}Detected Fedora — installing via dnf...${NC}"
+                sudo dnf install -y https://dl.k6.io/rpm/repo.rpm
+                sudo dnf install -y k6
+            elif command -v snap &> /dev/null; then
+                echo -e "${BLUE}Installing via snap...${NC}"
+                sudo snap install k6
+            else
+                echo -e "${RED}ERROR: Could not detect package manager. Install k6 manually:${NC}"
+                echo "  https://k6.io/docs/getting-started/installation/"
+                exit 1
+            fi
+            ;;
+        Darwin)
+            if command -v brew &> /dev/null; then
+                echo -e "${BLUE}Detected macOS — installing via Homebrew...${NC}"
+                brew install k6
+            else
+                echo -e "${RED}ERROR: Homebrew not found. Install it first or install k6 manually:${NC}"
+                echo "  https://k6.io/docs/getting-started/installation/"
+                exit 1
+            fi
+            ;;
+        *)
+            echo -e "${RED}ERROR: Unsupported OS ($OS). Install k6 manually:${NC}"
+            echo "  https://k6.io/docs/getting-started/installation/"
+            exit 1
+            ;;
+    esac
+
+    # Verify installation
+    if ! command -v k6 &> /dev/null; then
+        echo -e "${RED}ERROR: k6 installation failed.${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}k6 installed successfully! Version: $(k6 version)${NC}"
 fi
 
 # Health check before running tests
@@ -107,6 +153,10 @@ run_test() {
 TEST_TYPE="${1:-all}"
 
 case "$TEST_TYPE" in
+    smoke)
+        run_test "smoke" "smoke-test.js" "Smoke Test (Quick Validation)"
+        ;;
+
     load)
         run_test "load" "load-test.js" "Load Test (Normal Traffic)"
         ;;
@@ -127,25 +177,36 @@ case "$TEST_TYPE" in
         run_test "websocket" "websocket-test.js" "WebSocket Performance Test"
         ;;
 
+    full)
+        run_test "full" "full-test.js" "Full Test Suite (Load + Stress + Spike Combined)"
+        ;;
+
     all)
         echo -e "${YELLOW}Running all performance tests sequentially...${NC}"
-        echo -e "${YELLOW}Estimated total time: ~3.5 hours${NC}"
+        echo -e "${YELLOW}Estimated total time: ~4 hours${NC}"
         echo ""
 
+        # Start with smoke test for quick validation
+        run_test "smoke" "smoke-test.js" "1/7: Smoke Test (Quick Validation)" || true
+        sleep 10
+
         # Run tests in order of increasing intensity
-        run_test "load" "load-test.js" "1/5: Load Test (Normal Traffic)" || true
+        run_test "load" "load-test.js" "2/7: Load Test (Normal Traffic)" || true
         sleep 30  # Cool-down between tests
 
-        run_test "spike" "spike-test.js" "2/5: Spike Test (Traffic Surge)" || true
+        run_test "spike" "spike-test.js" "3/7: Spike Test (Traffic Surge)" || true
         sleep 30
 
-        run_test "stress" "stress-test.js" "3/5: Stress Test (Beyond Capacity)" || true
+        run_test "stress" "stress-test.js" "4/7: Stress Test (Beyond Capacity)" || true
         sleep 60  # Longer cool-down after stress
 
-        run_test "websocket" "websocket-test.js" "4/5: WebSocket Performance" || true
+        run_test "full" "full-test.js" "5/7: Full Test (Load+Stress+Spike Combined)" || true
         sleep 30
 
-        run_test "soak" "soak-test.js" "5/5: Soak Test (2-Hour Endurance)" || true
+        run_test "websocket" "websocket-test.js" "6/7: WebSocket Performance" || true
+        sleep 30
+
+        run_test "soak" "soak-test.js" "7/7: Soak Test (2-Hour Endurance)" || true
 
         echo -e "${GREEN}============================================================${NC}"
         echo -e "${GREEN}  All tests completed!${NC}"
@@ -154,7 +215,7 @@ case "$TEST_TYPE" in
         ;;
 
     *)
-        echo "Usage: $0 [load|stress|soak|spike|websocket|all]"
+        echo "Usage: $0 [smoke|load|stress|soak|spike|websocket|full|all]"
         exit 1
         ;;
 esac
